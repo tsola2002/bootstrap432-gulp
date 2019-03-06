@@ -58,7 +58,7 @@ customJsSources = [
 sassSources = [
     'components/sass/bootstrap.scss',
     'components/sass/custom.scss',
-    'components/less/fontawesome/font-awesome.less'
+    'components/sass/fontawesome/fontawesome.scss'
 ];
 
 //html files that need to be processed
