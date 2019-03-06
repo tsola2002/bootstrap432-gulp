@@ -3,3 +3,4 @@ node_modules
 .tmp
 .sass-cache
 .idea
+package-lock.json

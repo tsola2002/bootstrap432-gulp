@@ -10,12 +10,15 @@ var gulp = require('gulp'),
     pngcrush = require('pngcrush'),
     autoprefixer = require('gulp-autoprefixer'),
     minifyCSS = require('gulp-minify-css'),
+    sass = require('gulp-sass'),
     less = require('gulp-less');
+
+    sass.compiler = require('node-sass');
 
 //making declaration of necessary variables that will be used later on
 var env,
     jsSources,
-    lessSources,
+    sassSources,
     htmlSources,
     outputDir;
 
@@ -53,8 +56,8 @@ customJsSources = [
 
 
 sassSources = [
-    'components/less/bootstrap.less',
-    'components/less/custom.less',
+    'components/sass/bootstrap.scss',
+    'components/sass/custom.scss',
     'components/less/fontawesome/font-awesome.less'
 ];
 
@@ -62,14 +65,14 @@ sassSources = [
 
 htmlSources = [outputDir + '*.html'];
 
-gulp.task('less', function(){
-    //specify where less files are located
-    gulp.src(lessSources)
-    //convert the less files to css files
-        .pipe(less())
+gulp.task('sass', function(){
+    //specify where sass files are located
+    gulp.src(sassSources)
+    //convert the sass files to css files
+        .pipe(sass()
         //spit log message if there are any errors
-        .on('error', gutil.log)
-        //autoprefix the less files
+            .on('error', sass.logError))
+        //autoprefix the sass files
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
@@ -111,14 +114,14 @@ gulp.task('combine-js', function() {
 });
 
 gulp.task('watch', function() {
-    //when any lessSources file changes run less method
-    gulp.watch(lessSources, ['less']);
+    //when any sassSources file changes run sass method
+    gulp.watch(sassSources, ['sass']);
     //when any jsSources file changes run combine-js method
     gulp.watch(jsSources, ['combine-js']);
     //when any customJsSources file changes run process-js method
     gulp.watch(customJsSources, ['process-js']);
-    //when any file with a .less extension changes, we run the less task
-    gulp.watch('components/less/*.less', ['less']);
+    //when any file with a .scss extension changes, we run the sass task
+    gulp.watch('components/sass/*.scss', ['sass']);
     //when any html file changes do a livereload
     gulp.watch('builds/development/*.html', ['html']);
     //when any html file changes do a livereload
@@ -180,4 +183,4 @@ gulp.task('images', function() {
 
 
 //custom gulp task to run all tasks
-gulp.task('default', ['html', 'less', 'combine-js', 'process-js', 'log', 'images', 'connect', 'watch', 'minify-css']);
+gulp.task('default', ['html', 'sass', 'combine-js', 'process-js', 'log', 'images', 'connect', 'watch', 'minify-css']);
