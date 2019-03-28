@@ -34,19 +34,20 @@ if (env==='development')  {
 
 //javascript files that need to be combined
 jsSources = [
+    'components/js/jquery.js',
+    'components/js/util.js',
     'components/js/alert.js',
     'components/js/button.js',
     'components/js/carousel.js',
     'components/js/collapse.js',
     'components/js/dropdown.js',
-    'components/js/index.js',
     'components/js/modal.js',
     'components/js/popover.js',
     'components/js/scrollspy.js',
     'components/js/tab.js',
     'components/js/toast.js',
     'components/js/tooltip.js',
-    'components/js/util.js'
+    'components/js/index.js'
 ];
 
 customJsSources = [
