@@ -1,0 +1,33 @@
+/* COLOURS */
+body {
+  font-weight: normal; }
+
+h1 {
+  color: #555;
+  font-weight: bold; }
+
+h2 {
+  color: #555;
+  font-weight: bold; }
+
+h3 {
+  color: #333;
+  font-weight: bold; }
+
+header {
+  background-color: #34495e;
+  color: white;
+  height: 112px;
+  line-height: 112px;
+  /*  MOVE LOGO LEFT  */ }
+  header a .logo {
+    float: left; }
+  header nav {
+    font-weight: bold; }
+    header nav ul {
+      list-style: none; }
+      header nav ul li {
+        display: inline-block;
+        padding-left: 30px; }
+        header nav ul li a {
+          transition: all 0.3s ease-in; }

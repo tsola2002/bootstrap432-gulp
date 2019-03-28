@@ -1,0 +1,64 @@
+
+/* COLOURS */
+$primary: #e74c3c;
+$primary-bg: #e74c3c;
+$secondary-dark-blue: #34495e;
+$secondary-dark-blue-bg: #34495e;
+$secondary-sky-blue: #2d82d8;
+
+
+body{
+  font-weight: normal;
+}
+
+h1{
+  color: #555;
+  font-weight: bold;
+}
+
+h2{
+  color: #555;
+  font-weight: bold;
+}
+
+h3{
+  color: #333;
+  font-weight: bold;
+}
+
+
+header{
+  background-color: $secondary-dark-blue;
+  color: white;
+  height: 112px;
+  line-height: 112px;
+
+
+  /*  MOVE LOGO LEFT  */
+  a{
+    .logo{
+      float: left;
+    }
+  }
+
+
+  nav{
+    font-weight: bold;
+    ul{
+      list-style: none;
+      li{
+        display: inline-block;
+        padding-left: 30px;
+
+        a{
+          transition: all 0.3s ease-in;
+        }
+
+      }
+    }
+  }
+
+}
+
+
+
